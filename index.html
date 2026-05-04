@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akanksha Analytical | Precision & Compliance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <style>
+      :root {
+        --primary: #0f172a;
+        --accent: #10b981;
+        --accent-glow: rgba(16, 185, 129, 0.35);
+        --accent-glow2: rgba(16, 185, 129, 0.15);
+        --secondary: #3b82f6;
+        --secondary-glow: rgba(59, 130, 246, 0.3);
+        --surface: #fff;
+        --glass: rgba(255, 255, 255, 0.82);
+        --glass-dark: rgba(15, 23, 42, 0.7);
+        --card-shadow: 0 20px 40px rgba(15, 23, 42, 0.07);
+        --grad: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Plus Jakarta Sans", sans-serif; scroll-behavior: smooth; }
+      body { background: #f8fafc; overflow-x: hidden; color: #1e293b; line-height: 1.6; background-image: radial-gradient(at 0% 0%, rgba(16,185,129,0.05) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(59,130,246,0.05) 0px, transparent 50%); }
+
+      /* ── ACCREDITATIONS (dark style) ── */
+      .accreditations-container { width: 100%; padding: 60px 10% 40px; background: var(--primary); position: relative; overflow: hidden; }
+      .accreditations-container::before { content: ""; position: absolute; top: -100px; left: -100px; width: 350px; height: 350px; border-radius: 50%; background: rgba(16,185,129,0.04); pointer-events: none; }
+      .accreditations-container::after { content: ""; position: absolute; bottom: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(59,130,246,0.04); pointer-events: none; }
+      .section-title { font-size: 2.2rem; color: #fff; font-weight: 800; text-align: center; margin-bottom: 30px; position: relative; padding-bottom: 18px; }
+      .section-title::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: linear-gradient(90deg, var(--accent), var(--secondary)); border-radius: 2px; }
+      .badge-strip { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; padding: 28px 36px; border-radius: 24px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+      .badge { background: rgba(255,255,255,0.05); padding: 14px 22px; border-radius: 14px; font-weight: 700; font-size: 0.82rem; display: flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s cubic-bezier(0.23,1,0.32,1); cursor: pointer; color: rgba(255,255,255,0.75); backdrop-filter: blur(10px); position: relative; overflow: hidden; }
+      .badge::before { content: ""; position: absolute; bottom: -40px; right: -40px; width: 100px; height: 100px; border-radius: 50%; background: rgba(16,185,129,0.1); transition: all 0.5s; z-index: 0; }
+      .badge:hover::before { transform: scale(3); }
+      .badge i { color: var(--accent); position: relative; z-index: 1; filter: drop-shadow(0 0 6px rgba(16,185,129,0.4)); }
+      .badge:hover { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(16,185,129,0.4); transform: translateY(-6px) scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+      /* ── WHY CHOOSE US (dark style) ── */
+      .why-choose-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-top: 40px; }
+      .choose-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); padding: 32px 28px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.23,1,0.32,1); cursor: default; }
+      .choose-card::before { content: ""; position: absolute; bottom: -50px; right: -50px; width: 140px; height: 140px; border-radius: 50%; background: rgba(16,185,129,0.1); transition: all 0.6s; z-index: 0; }
+      .choose-card:hover::before { transform: scale(3.5); }
+      .choose-card:hover { transform: translateY(-10px); border-color: rgba(16,185,129,0.35); box-shadow: 0 40px 80px rgba(0,0,0,0.3); background: rgba(255,255,255,0.08); }
+      .choose-card h4 { margin-bottom: 10px; color: rgba(255,255,255,0.9); display: flex; align-items: center; gap: 10px; font-size: 0.98rem; position: relative; z-index: 1; }
+      .choose-card i { color: var(--accent); font-size: 1.1rem; filter: drop-shadow(0 0 6px rgba(16,185,129,0.4)); }
+      .choose-card p { font-size: 0.88rem; color: rgba(255,255,255,0.55); margin: 0; position: relative; z-index: 1; }
+      .choose-icon-wrap { width: 48px; height: 48px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; transition: all 0.4s; position: relative; z-index: 1; }
+      .choose-card:hover .choose-icon-wrap { background: linear-gradient(135deg, var(--accent), #059669); border-color: var(--accent); transform: rotate(10deg) scale(1.1); box-shadow: 0 8px 24px rgba(16,185,129,0.35); }
+      .choose-card:hover .choose-icon-wrap i { color: #fff; filter: none; }
+      #why-us .section-title1 h2 { color: #fff; }
+      #why-us .section-title1 h2::after { background: linear-gradient(90deg, var(--accent), var(--secondary)); }
+      #why-us .section-title1 p { color: rgba(255,255,255,0.45); }
+      #why-us .section-label { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.2); color: var(--accent); }
+
+      /* ── LAB GALLERY (dark style) ── */
+      .lab-gallery { margin-top: 50px; background: var(--primary); border-radius: 32px; padding: 50px 40px; position: relative; overflow: hidden; }
+      .lab-gallery::before { content: ""; position: absolute; top: -100px; left: -100px; width: 350px; height: 350px; border-radius: 50%; background: rgba(16,185,129,0.04); pointer-events: none; }
+      .lab-gallery::after { content: ""; position: absolute; bottom: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(59,130,246,0.04); pointer-events: none; }
+      .lab-gallery .section-title1 h2 { color: #fff; }
+      .lab-gallery .section-title1 h2::after { background: linear-gradient(90deg, var(--accent), var(--secondary)); }
+      .lab-gallery .section-label { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.2); color: var(--accent); }
+      .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 16px; }
+      .gallery-item { border-radius: 20px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid rgba(255,255,255,0.08); transition: all 0.4s cubic-bezier(0.23,1,0.32,1); }
+      .gallery-item:hover { border-color: rgba(16,185,129,0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+      .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.23,1,0.32,1); }
+      .gallery-item:hover img { transform: scale(1.08); }
+      .gallery-item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.85), transparent 60%); opacity: 0; transition: opacity 0.4s; display: flex; align-items: flex-end; padding: 16px; }
+      .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+      .gallery-item-label { color: #fff; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px; }
+      .gallery-item.wide { grid-column: span 2; }
+      .gallery-item.tall { grid-row: span 2; }
+
+      /* ── CANVAS / NAV / SHARED ── */
+      #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: linear-gradient(135deg, #f1f5f9 0%, #e8f0fe 100%); }
+
+      /* ═══════════════════════════════════════════
+         NAVBAR FIX — keeps Contact Us on same line
+      ═══════════════════════════════════════════ */
+      nav {
+        position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+        width: 96%;
+        padding: 0 14px;
+        background: rgba(255,255,255,0.88);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-radius: 24px;
+        display: flex; justify-content: space-between; align-items: center;
+        z-index: 1000;
+        border: 1px solid rgba(255,255,255,0.7);
+        box-shadow: 0 8px 40px rgba(15,23,42,0.08), 0 1px 0 rgba(255,255,255,0.8) inset;
+        transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+        height: 68px;
+        min-width: 0;
+      }
+      nav.scrolled { background: rgba(255,255,255,0.97); box-shadow: 0 16px 48px rgba(15,23,42,0.12), 0 1px 0 rgba(255,255,255,0.9) inset; top: 10px; }
+      .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+      .logo-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: 0.3s; background: #fff; border: 1px solid #e2e8f0; flex-shrink: 0; }
+      .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+      .logo:hover .logo-icon { transform: rotate(5deg) scale(1.08); }
+      .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+      .logo-text b { color: var(--primary); font-size: 0.75rem; font-weight: 800; letter-spacing: -0.3px; white-space: nowrap; }
+      .logo-text span { color: var(--accent); font-size: 0.63rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+
+      /* Nav links — nowrap so they never drop to second line */
+      .nav-links { display: flex; gap: 0; list-style: none; align-items: center; flex-wrap: nowrap; flex-shrink: 1; min-width: 0; }
+      .nav-links li { position: relative; flex-shrink: 0; }
+      .nav-links a {
+        text-decoration: none; color: #475569; font-weight: 600;
+        font-size: 0.63rem;
+        transition: all 0.3s; text-transform: uppercase;
+        letter-spacing: 0px;
+        padding: 6px 5px;
+        border-radius: 10px; display: block; position: relative; overflow: hidden;
+        white-space: nowrap;
+      }
+      .nav-links a::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.08)); border-radius: 10px; opacity: 0; transition: opacity 0.3s; }
+      .nav-links a:hover::before { opacity: 1; }
+      .nav-links a:hover { color: var(--primary); }
+      .nav-links a.active { color: var(--accent); }
+      .nav-cta {
+        background: var(--primary) !important; color: #fff !important;
+        padding: 7px 10px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 12px rgba(15,23,42,0.25) !important;
+        transition: all 0.3s !important;
+        margin-left: 3px;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .nav-cta::before { display: none !important; }
+      .nav-cta:hover { background: var(--accent) !important; box-shadow: 0 6px 20px var(--accent-glow) !important; transform: translateY(-2px); }
+
+      .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; border-radius: 10px; transition: background 0.3s; }
+      .hamburger:hover { background: rgba(16,185,129,0.1); }
+      .hamburger span { display: block; width: 22px; height: 2px; background: var(--primary); border-radius: 2px; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); }
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .mobile-menu { display: none; position: fixed; top: 100px; left: 50%; transform: translateX(-50%); width: 88%; background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); border-radius: 20px; padding: 20px; z-index: 999; border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 20px 60px rgba(15,23,42,0.15); flex-direction: column; gap: 4px; }
+      .mobile-menu.open { display: flex; }
+      .mobile-menu a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.9rem; padding: 12px 16px; border-radius: 12px; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+      .mobile-menu a:hover { background: rgba(16,185,129,0.08); color: var(--accent); }
+      .text-gradient { background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
+      .text-gradient-green { background: linear-gradient(90deg, var(--accent), #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
+      section { padding: 100px 10%; }
+      .section-title1 { text-align: center; margin-bottom: 60px; }
+      .section-title1 h2 { font-size: 2.6rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; }
+      .section-title1 h2::after { content: ""; display: block; width: 56px; height: 4px; background: linear-gradient(90deg, var(--accent), var(--secondary)); margin: 14px auto 0; border-radius: 2px; }
+      .section-title1 p { color: #64748b; max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
+      .section-label { display: inline-flex; align-items: center; gap: 8px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 100px; padding: 6px 16px; font-size: 0.75rem; font-weight: 700; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+      .scroll-top { position: fixed; bottom: 30px; right: 30px; width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), #1e293b); color: #fff; border-radius: 14px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 20px rgba(15,23,42,0.3); z-index: 900; opacity: 0; transform: translateY(20px); transition: all 0.4s cubic-bezier(0.23,1,0.32,1); border: none; font-size: 1rem; }
+      .scroll-top.visible { opacity: 1; transform: translateY(0); }
+      .scroll-top:hover { background: linear-gradient(135deg, var(--accent), #059669); transform: translateY(-4px); box-shadow: 0 12px 30px var(--accent-glow); }
+
+      /* HERO */
+      .hero { height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative; overflow: hidden; }
+      .hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(16,185,129,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.04) 1px, transparent 1px); background-size: 60px 60px; animation: gridMove 20s linear infinite; pointer-events: none; }
+      @keyframes gridMove { 0% { transform: translate(0,0); } 100% { transform: translate(60px,60px); } }
+      .orb { position: absolute; border-radius: 50%; filter: blur(70px); pointer-events: none; animation: orbFloat 8s ease-in-out infinite; }
+      .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(16,185,129,0.12), transparent 70%); top: -100px; right: 5%; animation-delay: 0s; }
+      .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%); bottom: -50px; left: 10%; animation-delay: -4s; }
+      @keyframes orbFloat { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(20px,-30px) scale(1.05); } }
+      .hero-content { position: relative; z-index: 2; max-width: 700px; }
+      .hero-label { display: inline-flex; align-items: center; gap: 8px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); border-radius: 100px; padding: 6px 16px; font-size: 0.78rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; animation: slideIn 0.8s ease forwards; }
+      .hero-label .pulse { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse 2s ease infinite; }
+      @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } }
+      @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      .hero-content h1 { font-size: 4.2rem; line-height: 1.08; margin-bottom: 24px; font-weight: 800; letter-spacing: -1.5px; animation: slideIn 0.8s 0.2s ease both; }
+      .hero-content p { font-size: 1.12rem; color: #475569; margin-bottom: 38px; max-width: 580px; line-height: 1.75; animation: slideIn 0.8s 0.4s ease both; }
+      .hero-btns { display: flex; gap: 14px; margin-top: 50px; flex-wrap: wrap; animation: slideIn 0.8s 0.6s ease both; }
+      .hero-stats { position: absolute; right: 8%; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 20px; z-index: 2; animation: slideIn 0.8s 0.8s ease both; }
+      .stat-card-3d { background: rgba(255,255,255,0.9); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.8); border-radius: 20px; padding: 20px 28px; box-shadow: 0 20px 50px rgba(15,23,42,0.1), 0 1px 0 rgba(255,255,255,0.9) inset; min-width: 190px; transform-style: preserve-3d; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); position: relative; overflow: hidden; }
+      .stat-card-3d::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--secondary)); border-radius: 20px 20px 0 0; }
+      .stat-card-3d:hover { transform: translateY(-8px) rotateY(5deg); box-shadow: 0 35px 70px rgba(15,23,42,0.15); }
+      .stat-num { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; }
+      .stat-num span { color: var(--accent); }
+      .stat-label { font-size: 0.78rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+      .stat-icon { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; background: rgba(16,185,129,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.9rem; }
+      .stat-card-3d:nth-child(2) { margin-left: 30px; }
+      .stat-card-3d:nth-child(2) .stat-icon { background: rgba(59,130,246,0.1); color: var(--secondary); }
+      .btn-3d { padding: 15px 30px; background: var(--primary); color: #fff; border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s cubic-bezier(0.23,1,0.32,1); box-shadow: 0 6px 0 rgba(0,0,0,0.4), 0 2px 10px rgba(15,23,42,0.2); position: relative; border: none; cursor: pointer; overflow: hidden; }
+      .btn-3d::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent); pointer-events: none; }
+      .btn-3d:hover { transform: translateY(-3px); box-shadow: 0 9px 0 rgba(0,0,0,0.35), 0 15px 30px rgba(15,23,42,0.2); }
+      .btn-3d:active { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0,0,0,0.4); }
+      .btn-accent { background: linear-gradient(135deg, var(--accent), #059669); box-shadow: 0 6px 0 #065f46, 0 2px 15px var(--accent-glow); }
+      .btn-accent:hover { box-shadow: 0 9px 0 #065f46, 0 15px 35px var(--accent-glow); }
+      .btn-outline { background: transparent; color: var(--primary); box-shadow: 0 6px 0 #cbd5e1, 0 2px 10px rgba(15,23,42,0.08); border: 2px solid rgba(15,23,42,0.15); }
+      .btn-outline:hover { background: rgba(15,23,42,0.04); box-shadow: 0 9px 0 #cbd5e1; }
+
+      /* ABOUT */
+      .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 70px; align-items: center; }
+      .about-text h3 { color: var(--accent); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2.5px; margin-bottom: 14px; font-weight: 700; }
+      .about-text h2 { font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; line-height: 1.2; }
+      .about-text p { margin-bottom: 18px; font-size: 1.02rem; color: #475569; }
+      .vision-mission { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 32px; }
+      .vm-card { background: #fff; padding: 26px; border-radius: 20px; border-left: 4px solid var(--accent); box-shadow: var(--card-shadow); transition: all 0.4s; }
+      .vm-card:hover { transform: translateY(-6px); box-shadow: 0 30px 50px rgba(15,23,42,0.1); }
+      .vm-card h4 { margin-bottom: 10px; color: var(--primary); font-size: 1.05rem; }
+      .vm-card p { font-size: 0.87rem; color: #64748b; margin: 0; }
+      .about-img { position: relative; }
+      .about-img .img-wrap { background: #fff; height: 420px; border-radius: 30px; overflow: hidden; box-shadow: 0 40px 80px rgba(15,23,42,0.12); border: 6px solid #fff; animation: float 7s ease-in-out infinite; }
+      .about-img img { width: 100%; height: 100%; object-fit: cover; }
+      .about-deco { position: absolute; width: 120px; height: 120px; border-radius: 24px; background: linear-gradient(135deg, var(--accent), var(--secondary)); bottom: -20px; right: -20px; z-index: -1; opacity: 0.15; }
+      .about-deco-2 { position: absolute; width: 60px; height: 60px; border-radius: 50%; background: var(--accent); top: -15px; left: -15px; z-index: -1; opacity: 0.1; animation: pulse 4s ease infinite; }
+      @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
+
+      /* SERVICES */
+      .services-wrapper { padding: 110px 10%; background: linear-gradient(160deg, #0f172a 0%, #1e293b 60%, #0f2d1f 100%); position: relative; overflow: hidden; }
+      .services-wrapper::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(16,185,129,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(59,130,246,0.07) 0%, transparent 50%), radial-gradient(circle at 60% 80%, rgba(16,185,129,0.05) 0%, transparent 40%); pointer-events: none; }
+      .services-wrapper::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; animation: gridMove 25s linear infinite; }
+      .services-header { text-align: center; margin-bottom: 70px; position: relative; z-index: 2; }
+      .services-header h2 { font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 14px; }
+      .services-header h2::after { content: ""; display: block; width: 56px; height: 4px; background: linear-gradient(90deg, var(--accent), var(--secondary)); margin: 14px auto 0; border-radius: 2px; }
+      .services-header p { color: rgba(255,255,255,0.5); font-size: 1.05rem; }
+      .services-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+      .service-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 48px 44px; position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.23,1,0.32,1); cursor: default; }
+      .service-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); transform: scaleX(0); transition: transform 0.6s ease; transform-origin: left; }
+      .service-card.compliance::before { background: linear-gradient(90deg, transparent, var(--secondary), transparent); }
+      .service-card:hover::before { transform: scaleX(1); }
+      .service-card::after { content: ""; position: absolute; bottom: -80px; right: -80px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,0.12), transparent 70%); transition: all 0.6s cubic-bezier(0.23,1,0.32,1); pointer-events: none; }
+      .service-card.compliance::after { background: radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%); }
+      .service-card:hover::after { transform: scale(2.8); }
+      .service-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(16,185,129,0.25); transform: translateY(-10px); box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 60px rgba(16,185,129,0.06); }
+      .service-card.compliance:hover { border-color: rgba(59,130,246,0.25); box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 60px rgba(59,130,246,0.06); }
+      .service-card-header { display: flex; align-items: center; gap: 18px; margin-bottom: 32px; position: relative; z-index: 1; }
+      .service-icon-box { width: 58px; height: 58px; border-radius: 18px; background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.08)); border: 1px solid rgba(16,185,129,0.25); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--accent); flex-shrink: 0; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); }
+      .service-card.compliance .service-icon-box { background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(59,130,246,0.08)); border-color: rgba(59,130,246,0.25); color: var(--secondary); }
+      .service-card:hover .service-icon-box { transform: rotate(-8deg) scale(1.12); background: linear-gradient(135deg, var(--accent), #059669); border-color: var(--accent); color: #fff; box-shadow: 0 12px 30px rgba(16,185,129,0.35); }
+      .service-card.compliance:hover .service-icon-box { background: linear-gradient(135deg, var(--secondary), #2563eb); border-color: var(--secondary); box-shadow: 0 12px 30px rgba(59,130,246,0.35); }
+      .service-card-header h3 { font-size: 1.3rem; color: #fff; font-weight: 800; letter-spacing: -0.3px; line-height: 1.2; }
+      .service-list { list-style: none; padding: 0; margin: 0; position: relative; z-index: 1; }
+      .service-list li { padding: 11px 0 11px 32px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.65); font-size: 0.93rem; transition: all 0.3s ease; cursor: default; }
+      .service-list li:last-child { border-bottom: none; }
+      .service-list li::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; border-radius: 50%; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); transition: all 0.3s ease; }
+      .service-list li::after { content: "✓"; position: absolute; left: 3px; top: 50%; transform: translateY(-50%); color: var(--accent); font-weight: 800; font-size: 0.7rem; transition: all 0.3s ease; }
+      .service-card.compliance .service-list li::before { background: rgba(59,130,246,0.12); border-color: rgba(59,130,246,0.3); }
+      .service-card.compliance .service-list li::after { color: var(--secondary); }
+      .service-list li:hover { color: #fff; padding-left: 40px; }
+      .service-list li:hover::before { background: var(--accent); box-shadow: 0 0 12px rgba(16,185,129,0.5); }
+      .service-card.compliance .service-list li:hover::before { background: var(--secondary); box-shadow: 0 0 12px rgba(59,130,246,0.5); }
+      .service-count-tag { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 6px 12px; font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 1px; text-transform: uppercase; z-index: 1; }
+      .service-particle { position: absolute; border-radius: 50%; pointer-events: none; animation: particleFloat var(--dur,6s) ease-in-out infinite; animation-delay: var(--delay,0s); }
+      @keyframes particleFloat { 0%,100% { transform: translate(0,0) scale(1); opacity: 0.3; } 50% { transform: translate(var(--tx,10px),var(--ty,-15px)) scale(1.2); opacity: 0.6; } }
+
+      /* PROJECTS */
+      .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; max-width: 1000px; margin: 0 auto; position: relative; z-index: 2; }
+      .project-card { background: #fff; padding: 0; border-radius: 30px; border: 1px solid rgba(226,232,240,0.8); box-shadow: 0 20px 50px rgba(15,23,42,0.06); overflow: hidden; transition: all 0.5s cubic-bezier(0.175,0.885,0.32,1.275); position: relative; cursor: default; display: flex; flex-direction: column; }
+      .project-card:hover { transform: translateY(-18px) scale(1.02); box-shadow: 0 60px 100px rgba(15,23,42,0.12); border-color: var(--accent); }
+      .project-banner { height: 180px; position: relative; overflow: hidden; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); display: flex; align-items: center; justify-content: center; }
+      .project-card:nth-child(2) .project-banner { background: linear-gradient(135deg, #0c1445 0%, #172055 100%); }
+      .project-banner::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(16,185,129,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.08) 1px, transparent 1px); background-size: 30px 30px; animation: gridMove 12s linear infinite; }
+      .project-card:nth-child(2) .project-banner::before { background-image: linear-gradient(rgba(59,130,246,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.08) 1px, transparent 1px); }
+      .project-banner::after { content: ""; position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,0.2), transparent 70%); top: -50px; right: -50px; animation: orbFloat 6s ease-in-out infinite; }
+      .project-card:nth-child(2) .project-banner::after { background: radial-gradient(circle, rgba(59,130,246,0.2), transparent 70%); }
+      .project-icon { width: 90px; height: 90px; background: rgba(255,255,255,0.07); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); border-radius: 26px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: var(--accent); position: relative; z-index: 2; transition: all 0.5s cubic-bezier(0.23,1,0.32,1); animation: iconFloat 5s ease-in-out infinite; box-shadow: 0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15); }
+      .project-card:nth-child(2) .project-icon { color: var(--secondary); animation-delay: -2.5s; }
+      .project-card:hover .project-icon { transform: scale(1.18) rotate(8deg); background: rgba(16,185,129,0.2); border-color: rgba(16,185,129,0.4); box-shadow: 0 25px 50px rgba(0,0,0,0.35), 0 0 40px rgba(16,185,129,0.2); }
+      .project-card:nth-child(2):hover .project-icon { background: rgba(59,130,246,0.2); border-color: rgba(59,130,246,0.4); box-shadow: 0 25px 50px rgba(0,0,0,0.35), 0 0 40px rgba(59,130,246,0.2); }
+      @keyframes iconFloat { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(4deg); } }
+      .project-dots { display: flex; gap: 6px; position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); z-index: 2; }
+      .project-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: all 0.4s; }
+      .project-dot.active { background: var(--accent); width: 20px; border-radius: 3px; }
+      .project-card:nth-child(2) .project-dot.active { background: var(--secondary); }
+      .project-content { padding: 34px 36px 36px; display: flex; flex-direction: column; flex: 1; }
+      .project-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 100px; padding: 4px 14px; font-size: 0.7rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; width: fit-content; }
+      .project-card:nth-child(2) .project-tag { background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.2); color: var(--secondary); }
+      .project-content h4 { font-size: 1.25rem; color: var(--primary); margin-bottom: 12px; font-weight: 800; line-height: 1.3; transition: color 0.3s; }
+      .project-card:hover .project-content h4 { color: var(--accent); }
+      .project-card:nth-child(2):hover .project-content h4 { color: var(--secondary); }
+      .project-content p { color: #64748b; font-size: 0.93rem; line-height: 1.75; flex: 1; }
+      .project-stats { display: flex; gap: 0; margin-top: 24px; border-top: 1px solid #f1f5f9; padding-top: 20px; }
+      .project-stat { flex: 1; text-align: center; padding: 0 12px; border-right: 1px solid #f1f5f9; }
+      .project-stat:last-child { border-right: none; }
+      .project-stat-num { font-size: 1.2rem; font-weight: 800; color: var(--primary); display: block; line-height: 1; margin-bottom: 4px; }
+      .project-stat-label { font-size: 0.68rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+
+      /* CERTIFICATIONS */
+      .cert-images-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+      .cert-image-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; overflow: hidden; transition: all 0.5s cubic-bezier(0.23,1,0.32,1); cursor: pointer; position: relative; }
+      .cert-image-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 40px 80px rgba(0,0,0,0.4); border-color: rgba(16,185,129,0.4); }
+      .cert-img-frame { background: #fff; padding: 16px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+      .cert-img-frame img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
+      .cert-img-label { padding: 20px 24px; text-align: center; }
+      .cert-img-label h4 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+      .cert-img-label p { color: rgba(255,255,255,0.55); font-size: 0.8rem; }
+      .cert-icon-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); color: #fff; padding: 48px 28px; border-radius: 28px; position: relative; transition: all 0.5s cubic-bezier(0.23,1,0.32,1); overflow: hidden; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer; min-height: 280px; justify-content: center; }
+      .cert-icon-card::before { content: ""; position: absolute; bottom: -50px; right: -50px; width: 160px; height: 160px; border-radius: 50%; background: rgba(16,185,129,0.1); transition: all 0.6s; z-index: 0; }
+      .cert-icon-card:hover::before { transform: scale(3.5); }
+      .cert-icon-card:hover { transform: translateY(-12px); box-shadow: 0 40px 80px rgba(0,0,0,0.35); border-color: rgba(16,185,129,0.4); }
+      .cert-icon-card i { font-size: 3rem; color: var(--accent); margin-bottom: 22px; position: relative; z-index: 1; transition: all 0.4s; filter: drop-shadow(0 0 8px rgba(16,185,129,0.3)); }
+      .cert-icon-card:hover i { transform: scale(1.2) translateY(-5px); filter: drop-shadow(0 0 20px var(--accent)); }
+      .cert-icon-card p { font-weight: 700; color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.6; margin: 0; position: relative; z-index: 1; }
+
+      /* INFRASTRUCTURE */
+      .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+      .infra-images .img-wrap { background: #fff; height: 380px; border-radius: 30px; overflow: hidden; box-shadow: 0 40px 80px rgba(15,23,42,0.12); border: 6px solid #fff; }
+      .infra-images img { width: 100%; height: 100%; object-fit: cover; }
+      .infra-details h3 { margin-bottom: 24px; color: var(--primary); font-size: 1.5rem; font-weight: 800; }
+      .infra-item { background: #fff; padding: 18px 22px; border-radius: 14px; margin-bottom: 14px; box-shadow: 0 4px 15px rgba(15,23,42,0.05); display: flex; align-items: center; gap: 15px; font-weight: 600; font-size: 0.95rem; transition: all 0.3s; border: 1px solid #f1f5f9; }
+      .infra-item:hover { transform: translateX(8px); border-color: var(--accent); box-shadow: 0 8px 25px rgba(16,185,129,0.1); }
+      .infra-item i { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; }
+
+      /* TESTIMONIALS */
+      .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+      .testimonial-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); color: #fff; padding: 48px 40px; border-radius: 28px; position: relative; transition: all 0.5s cubic-bezier(0.23,1,0.32,1); overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+      .testimonial-card::before { content: ""; position: absolute; bottom: -50px; right: -50px; width: 150px; height: 150px; border-radius: 50%; background: rgba(16,185,129,0.1); transition: 0.6s; }
+      .testimonial-card:hover::before { transform: scale(3.5); }
+      .testimonial-card:hover { transform: translateY(-12px); box-shadow: 0 40px 80px rgba(0,0,0,0.3); border-color: rgba(16,185,129,0.3); }
+      .testimonial-card i.fa-quote-left { font-size: 2.5rem; color: var(--accent); opacity: 0.2; position: absolute; top: 24px; left: 24px; }
+      .testimonial-card p { font-style: italic; margin-bottom: 22px; position: relative; z-index: 1; line-height: 1.8; opacity: 0.85; }
+      .testimonial-author { color: var(--accent); font-weight: 800; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; }
+
+      /* CAREERS */
+      .career-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+      .job-card { background: #fff; padding: 36px; border-radius: 24px; box-shadow: var(--card-shadow); border: 1px solid #e2e8f0; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); position: relative; overflow: hidden; }
+      .job-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--secondary), #2563eb); }
+      .job-card:hover { border-color: var(--secondary); transform: translateY(-8px); box-shadow: 0 30px 60px rgba(59,130,246,0.1); }
+      .job-tag { display: inline-block; padding: 5px 14px; background: #eff6ff; color: var(--secondary); border-radius: 100px; font-size: 0.73rem; font-weight: 700; margin-bottom: 16px; }
+      .job-card h4 { font-size: 1.35rem; margin-bottom: 12px; color: var(--primary); }
+      .job-details { list-style: none; margin-bottom: 18px; }
+      .job-details li { font-size: 0.88rem; color: #64748b; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+      .job-details li i { color: var(--secondary); }
+      .job-card p { font-size: 0.9rem; margin-bottom: 22px; color: #475569; }
+      .apply-btn { text-decoration: none; color: var(--accent); font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.3s; }
+      .apply-btn:hover { gap: 12px; }
+
+      /* CLIENTS SERVED */
+      .clients-served-section { padding: 100px 10%; background: var(--primary); position: relative; overflow: hidden; }
+      .clients-orb { position: absolute; border-radius: 50%; pointer-events: none; }
+      .clients-orb-1 { top: -100px; left: -100px; width: 350px; height: 350px; background: rgba(16,185,129,0.04); }
+      .clients-orb-2 { bottom: -80px; right: -80px; width: 300px; height: 300px; background: rgba(59,130,246,0.04); }
+      .clients-particle { position: absolute; border-radius: 50%; background: rgba(16,185,129,0.3); pointer-events: none; animation: particleFloat var(--dur,7s) ease-in-out infinite; animation-delay: var(--delay,0s); }
+      .clients-served-section .section-title1 h2 { color: #fff; }
+      .clients-served-section .section-title1 h2::after { background: linear-gradient(90deg, var(--accent), var(--secondary)); }
+      .clients-heading { color: #fff !important; }
+      .clients-subtext { color: rgba(255,255,255,0.45) !important; }
+      .clients-label { background: rgba(16,185,129,0.1) !important; border-color: rgba(16,185,129,0.2) !important; color: var(--accent) !important; }
+      .serve-grid-dark { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+      .serve-card-dark { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding: 48px 36px 40px; border-radius: 28px; position: relative; transition: all 0.5s cubic-bezier(0.23,1,0.32,1); overflow: hidden; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: center; text-align: center; cursor: default; }
+      .serve-card-dark .serve-glow-orb { position: absolute; bottom: -50px; right: -50px; width: 150px; height: 150px; border-radius: 50%; background: rgba(16,185,129,0.1); transition: all 0.6s cubic-bezier(0.23,1,0.32,1); z-index: 0; }
+      .serve-card-dark:hover .serve-glow-orb { transform: scale(3.5); }
+      .serve-card-dark:hover { transform: translateY(-12px); box-shadow: 0 40px 80px rgba(0,0,0,0.3); border-color: rgba(16,185,129,0.3); }
+      .serve-quote-icon { font-size: 2.5rem !important; color: var(--accent) !important; opacity: 0.15 !important; position: absolute !important; top: 20px !important; left: 22px !important; z-index: 1 !important; }
+      .serve-icon-dark { width: 80px; height: 80px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.9rem; color: var(--accent); margin-bottom: 22px; position: relative; z-index: 1; transition: all 0.5s cubic-bezier(0.23,1,0.32,1); filter: drop-shadow(0 0 8px rgba(16,185,129,0.2)); }
+      .serve-card-dark:hover .serve-icon-dark { background: linear-gradient(135deg, var(--accent), #059669); border-color: var(--accent); color: #fff; transform: scale(1.15) translateY(-4px); filter: drop-shadow(0 0 20px var(--accent)); }
+      .serve-card-dark p { font-weight: 700; color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.6; margin: 0; position: relative; z-index: 1; }
+
+      /* CONTACT */
+      .contact-container { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; background: #fff; padding: 64px; border-radius: 40px; box-shadow: 0 40px 80px rgba(15,23,42,0.08); border: 1px solid rgba(226,232,240,0.6); position: relative; overflow: hidden; }
+      .contact-container::before { content: ""; position: absolute; top: -100px; left: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,0.05), transparent 70%); pointer-events: none; }
+      .contact-info h3 { font-size: 1.9rem; font-weight: 800; margin-bottom: 14px; color: var(--primary); }
+      .contact-info > p { margin-bottom: 30px; color: #64748b; }
+      .info-item { display: flex; gap: 16px; margin-bottom: 22px; align-items: flex-start; }
+      .info-icon { width: 44px; height: 44px; flex-shrink: 0; background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(16,185,129,0.05)); color: var(--accent); display: flex; align-items: center; justify-content: center; border-radius: 12px; font-size: 1rem; transition: all 0.3s; }
+      .info-item:hover .info-icon { background: var(--accent); color: #fff; transform: scale(1.1) rotate(5deg); }
+      .info-item strong { display: block; color: var(--primary); margin-bottom: 2px; font-size: 0.88rem; }
+      .info-item span { color: #64748b; font-size: 0.93rem; }
+      .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px 18px; margin-bottom: 14px; border-radius: 14px; border: 1.5px solid #e2e8f0; background: #f8fafc; outline: none; transition: all 0.3s; font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.92rem; color: var(--primary); }
+      .form-group input:focus, .form-group select:focus, .form-group textarea:focus { background: #fff; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow2); }
+      .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px; }
+      .form-group textarea { resize: vertical; min-height: 120px; }
+      .toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(20px); background: #fff; border-radius: 16px; padding: 16px 24px; box-shadow: 0 20px 60px rgba(15,23,42,0.15); display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 0.93rem; z-index: 9999; opacity: 0; pointer-events: none; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); border: 1px solid #e2e8f0; min-width: 320px; }
+      .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+      .toast-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+      .toast.success .toast-icon { background: rgba(16,185,129,0.12); color: var(--accent); }
+      .toast.error .toast-icon { background: rgba(239,68,68,0.1); color: #ef4444; }
+      .toast-text { flex: 1; }
+      .toast-title { color: var(--primary); margin-bottom: 2px; }
+      .toast-sub { color: #64748b; font-size: 0.82rem; font-weight: 400; }
+      .btn-3d .spinner { display: none; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; flex-shrink: 0; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .btn-3d.loading .spinner { display: block; }
+      .btn-3d.loading .btn-label { opacity: 0.7; }
+      .form-success { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; gap: 16px; }
+      .form-success.show { display: flex; }
+      .form-success-icon { width: 72px; height: 72px; background: linear-gradient(135deg, var(--accent), #059669); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #fff; box-shadow: 0 16px 40px rgba(16,185,129,0.35); animation: popIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275) forwards; }
+      @keyframes popIn { from { transform: scale(0); } to { transform: scale(1); } }
+      .form-success h4 { font-size: 1.3rem; color: var(--primary); font-weight: 800; }
+      .form-success p { color: #64748b; font-size: 0.93rem; }
+      .form-success .ref-badge { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 10px; padding: 8px 18px; color: var(--accent); font-size: 0.85rem; font-weight: 700; }
+
+      /* ── OUR FACILITY ── */
+      .facility-section { padding: 100px 10%; background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%); position: relative; overflow: hidden; }
+      .facility-section::before { content: ""; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,0.06), transparent 70%); pointer-events: none; }
+      .facility-section::after { content: ""; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(59,130,246,0.06), transparent 70%); pointer-events: none; }
+      .facility-img-wrap { position: relative; max-width: 960px; margin: 0 auto; }
+      .facility-img-frame { border-radius: 32px; overflow: hidden; box-shadow: 0 40px 80px rgba(15,23,42,0.14); border: 6px solid #fff; position: relative; }
+      .facility-img-frame img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 560px; transition: transform 0.6s cubic-bezier(0.23,1,0.32,1); }
+      .facility-img-frame:hover img { transform: scale(1.02); }
+      .facility-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15,23,42,0.78) 0%, transparent 100%); padding: 36px 40px; }
+      .facility-badges { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+      .facility-badge { backdrop-filter: blur(8px); border-radius: 10px; padding: 7px 16px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 7px; }
+      .facility-badge.green { background: rgba(16,185,129,0.18); border: 1px solid rgba(16,185,129,0.4); color: #6ee7b7; }
+      .facility-badge.white { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.88); }
+      .facility-address { color: rgba(255,255,255,0.65); font-size: 0.86rem; margin: 0; }
+      .facility-deco-br { position: absolute; bottom: -18px; right: -18px; width: 110px; height: 110px; border-radius: 22px; background: linear-gradient(135deg, var(--accent), var(--secondary)); opacity: 0.12; z-index: -1; }
+      .facility-deco-tl { position: absolute; top: -14px; left: -14px; width: 64px; height: 64px; border-radius: 50%; background: var(--accent); opacity: 0.09; z-index: -1; }
+
+      /* FOOTER */
+      footer { padding: 50px 10%; background: var(--primary); color: #94a3b8; text-align: center; }
+      footer .footer-logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; text-decoration: none; }
+      footer .footer-logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), #059669); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1rem; }
+      footer p { font-size: 0.88rem; margin-bottom: 6px; }
+      footer .footer-tag { font-size: 0.7rem; opacity: 0.5; margin-top: 8px; }
+
+      /* DIRECTORS */
+      .directors-section { padding: 110px 10%; background: linear-gradient(135deg, #f8fafc 0%, #f0fdf4 50%, #eff6ff 100%); position: relative; overflow: hidden; }
+      .directors-section::before { content: ""; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,0.06), transparent 70%); pointer-events: none; }
+      .directors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 60px; }
+      .director-card { background: #fff; border-radius: 32px; overflow: hidden; box-shadow: 0 30px 60px rgba(15,23,42,0.08); border: 1px solid rgba(226,232,240,0.8); transition: all 0.5s cubic-bezier(0.23,1,0.32,1); position: relative; }
+      .director-card:hover { transform: translateY(-12px); box-shadow: 0 50px 100px rgba(15,23,42,0.12); border-color: rgba(16,185,129,0.3); }
+      .director-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--secondary)); }
+      .director-img-wrap { overflow: hidden; position: relative; background: #f1f5f9; }
+      .director-img-wrap img { width: 100%; height: auto; display: block; max-height: 500px; object-fit: contain; object-position: center top; transition: transform 0.6s cubic-bezier(0.23,1,0.32,1); }
+      .director-card:hover .director-img-wrap img { transform: scale(1.03); }
+      .director-img-overlay { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to top, #fff, transparent); }
+      .director-info { padding: 32px 36px 36px; }
+      .director-role-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 100px; padding: 5px 16px; font-size: 0.72rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+      .director-name { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 6px; letter-spacing: -0.3px; }
+      .director-title { font-size: 0.85rem; color: #64748b; font-weight: 600; margin-bottom: 20px; }
+      .director-bio { font-size: 0.9rem; color: #475569; line-height: 1.8; margin-bottom: 20px; }
+      .director-bio-full { display: none; }
+      .director-bio-full.expanded { display: block; }
+      .read-more-btn { background: none; border: none; color: var(--accent); font-weight: 700; font-size: 0.85rem; cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.3s; }
+      .read-more-btn:hover { gap: 10px; }
+      .director-quals { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+      .director-qual { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 5px 12px; font-size: 0.75rem; font-weight: 600; color: #475569; }
+
+      /* LIGHTBOX */
+      .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9000; display: none; align-items: center; justify-content: center; padding: 20px; }
+      .lightbox.open { display: flex; }
+      .lightbox-inner { position: relative; max-width: 700px; width: 100%; max-height: 90vh; }
+      .lightbox-inner img { width: 100%; height: auto; max-height: 85vh; object-fit: contain; border-radius: 16px; box-shadow: 0 40px 100px rgba(0,0,0,0.5); }
+      .lightbox-close { position: absolute; top: -16px; right: -16px; width: 44px; height: 44px; background: var(--accent); color: #fff; border: none; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(16,185,129,0.4); }
+
+      /* RESPONSIVE */
+      @media (max-width: 1200px) {
+        .nav-links a { font-size: 0.58rem; padding: 5px 4px; }
+      }
+      @media (max-width: 1100px) {
+        .hero { flex-direction: column; align-items: flex-start; height: auto; padding-top: 120px; padding-bottom: 60px; }
+        .hero-stats { position: static; transform: none; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 40px; width: 100%; }
+        .stat-card-3d { min-width: 140px; flex: 1 1 140px; }
+        .stat-card-3d:nth-child(2) { margin-left: 0; }
+        .hero-content h1 { font-size: 3.4rem; }
+        .services-container { grid-template-columns: 1fr; }
+        .projects-grid { grid-template-columns: 1fr; }
+        .directors-grid { grid-template-columns: 1fr; }
+        .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        .gallery-item.wide { grid-column: span 1; }
+        /* Switch to hamburger below 1100px since many nav items */
+        .nav-links { display: none; }
+        .hamburger { display: flex; }
+      }
+      @media (max-width: 968px) {
+        .hero-content h1 { font-size: 2.8rem; }
+        .about-grid, .contact-container, .infra-grid { grid-template-columns: 1fr; }
+        .vision-mission { grid-template-columns: 1fr; }
+        .contact-container { padding: 36px; }
+        section { padding: 80px 6%; }
+        .directors-section { padding: 80px 6%; }
+        .lab-gallery { padding: 36px 24px; }
+        .facility-overlay { padding: 24px 26px; }
+      }
+      @media (max-width: 600px) {
+        .hero-content h1 { font-size: 2.2rem; letter-spacing: -0.5px; }
+        .badge-strip { gap: 10px; padding: 20px; }
+        .section-title1 h2 { font-size: 2rem; }
+        .services-wrapper { padding: 80px 6%; }
+        .project-content { padding: 24px; }
+        .project-stats { flex-direction: column; gap: 12px; }
+        .project-stat { border-right: none; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px; }
+        .project-stat:last-child { border-bottom: none; }
+        .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+        .facility-badges { gap: 8px; }
+        .facility-badge { font-size: 0.7rem; padding: 5px 12px; }
+      }
+      @media (max-width: 480px) {
+        section { padding: 60px 5%; }
+        .hero h1 { font-size: 1.8rem; }
+        .hero-label { font-size: 0.75rem; }
+        .stat-card-3d { width: 100%; }
+        .why-choose-grid { grid-template-columns: 1fr; }
+        .serve-grid-dark { grid-template-columns: 1fr; }
+        .badge-strip { flex-direction: column; gap: 10px; }
+        .btn-3d { width: 100%; justify-content: center; }
+        h2 { font-size: 1.6rem; }
+        p { font-size: 0.9rem; }
+        .gallery-grid { grid-template-columns: 1fr; }
+      }
+      body, html { overflow-x: hidden; }
+      img { max-width: 100%; height: auto; }
+      .hero-stats, .badge-strip { flex-wrap: wrap; }
+    </style>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+      <div class="toast-icon"><i class="fas fa-check" id="toastIcon"></i></div>
+      <div class="toast-text">
+        <div class="toast-title" id="toastTitle">Message sent!</div>
+        <div class="toast-sub" id="toastSub">We'll be in touch shortly.</div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="certLightbox" onclick="closeLightbox()">
+      <div class="lightbox-inner" onclick="event.stopPropagation()">
+        <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+        <img id="lightboxImg" src="" alt="Certificate"/>
+      </div>
+    </div>
+
+    <div id="canvas-container"></div>
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- NAV -->
+    <nav id="navbar">
+      <a href="#home" class="logo">
+        <div class="logo-icon"><img src="akanksha_logo.png" alt="Akanksha Analytical Logo"/></div>
+        <div class="logo-text"><b>AKANKSHA ANALYTICAL</b><span>& Research Lab</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#directors">Directors</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#infrastructure">Infrastructure</a></li>
+        <li><a href="#our-facility">Facility</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#clients-served">Clients</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" onclick="closeMobile()">Home</a>
+      <a href="#about" onclick="closeMobile()">About</a>
+      <a href="#directors" onclick="closeMobile()">Directors</a>
+      <a href="#services" onclick="closeMobile()">Services</a>
+      <a href="#projects" onclick="closeMobile()">Projects</a>
+      <a href="#certifications" onclick="closeMobile()">Certifications</a>
+      <a href="#infrastructure" onclick="closeMobile()">Infrastructure</a>
+      <a href="#our-facility" onclick="closeMobile()">Facility</a>
+      <a href="#testimonials" onclick="closeMobile()">Testimonials</a>
+      <a href="#careers" onclick="closeMobile()">Careers</a>
+      <a href="#clients-served" onclick="closeMobile()">Clients</a>
+      <a href="#contact" onclick="closeMobile()">Contact</a>
+    </div>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="orb orb-1"></div><div class="orb orb-2"></div>
+      <div class="hero-content" data-aos="fade-right">
+        <div class="hero-label"><span class="pulse"></span>NABL Accredited · CPCB Recognized</div>
+        <h1>Akanksha Analytical<br/>and <span style="color:var(--accent)">Research Lab</span></h1>
+        <p>Providing high-quality environmental testing and monitoring services for water, wastewater, construction projects, air quality, and industrial emissions.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-3d btn-accent"><i class="fas fa-paper-plane"></i> Request a Quote</a>
+          <a href="#services" class="btn-3d btn-outline"><i class="fas fa-flask"></i> Our Services</a>
+        </div>
+      </div>
+      <div class="hero-stats" data-aos="fade-left">
+        <div class="stat-card-3d"><div class="stat-icon"><i class="fas fa-award"></i></div><div class="stat-num">NABL<span>+</span></div><div class="stat-label">Accredited Lab</div></div>
+        <div class="stat-card-3d"><div class="stat-icon"><i class="fas fa-certificate" style="color:var(--secondary)"></i></div><div class="stat-num"><span>ISO</span></div><div class="stat-label">9001 & 45001 Certified</div></div>
+        <div class="stat-card-3d"><div class="stat-icon"><i class="fas fa-shield-halved"></i></div><div class="stat-num">CPCB<span>✓</span></div><div class="stat-label">MoEF&CC Recognized</div></div>
+      </div>
+    </section>
+
+    <!-- ACCREDITATIONS -->
+    <div class="accreditations-container" id="accreditations">
+      <h2 class="section-title">Accreditations & Certifications</h2>
+      <div class="badge-strip">
+        <div class="badge" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-certificate"></i> NABL Accredited Laboratory</div>
+        <div class="badge" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-building"></i> CPCB Recognized</div>
+        <div class="badge" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-shield-check"></i> ISO 9001:2015 – Quality Management System</div>
+        <div class="badge" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-user-shield"></i> ISO 45001:2018 – Occupational Health & Safety</div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-grid">
+        <div class="about-text" data-aos="fade-up">
+          <div class="section-label"><i class="fas fa-info-circle"></i> About Our Lab</div>
+          <h2>Environmental Testing <span class="text-gradient-green">You Can Trust</span></h2>
+          <p>At Akanksha Analytical & Research Lab, we specialize in comprehensive environmental testing services, ensuring regulatory compliance and safeguarding public health. Our state-of-the-art laboratory is equipped with advanced technology and experienced professionals dedicated to delivering precise and timely results.</p>
+          <p>We also provide expert environmental end-to-end support for SPCB licensing, ensuring regulatory compliance for industries across various sectors.</p>
+          <div class="vision-mission">
+            <div class="vm-card" data-aos="fade-up"><h4><i class="fas fa-bullseye" style="color:var(--accent);margin-right:8px"></i>Our Mission</h4><p>To support sustainable development by delivering environmental monitoring and analytical services that meet regulatory standards and protect public health.</p></div>
+            <div class="vm-card" data-aos="fade-up" data-aos-delay="100"><h4><i class="fas fa-eye" style="color:var(--secondary);margin-right:8px"></i>Our Vision</h4><p>To be recognized as a leading, reliable, and innovative environmental laboratory in India.</p></div>
+          </div>
+        </div>
+        <div class="about-img" data-aos="fade-left">
+          <div class="img-wrap"><img src="./img/about.webp" alt="Environmental Lab Specialist"/></div>
+          <div class="about-deco"></div><div class="about-deco-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-us" style="background:var(--primary);position:relative;overflow:hidden;">
+      <div class="section-title1" data-aos="fade-up">
+        <div class="section-label"><i class="fas fa-star"></i> Our Strengths</div>
+        <h2>Why Choose Us</h2>
+        <p>Setting the gold standard in environmental analytical research.</p>
+      </div>
+      <div class="why-choose-grid">
+        <div class="choose-card" data-aos="zoom-in"><div class="choose-icon-wrap"><i class="fas fa-award"></i></div><h4>Accredited Laboratory</h4><p>Accurate and certified lab results for compliance.</p></div>
+        <div class="choose-card" data-aos="zoom-in" data-aos-delay="60"><div class="choose-icon-wrap"><i class="fas fa-microchip"></i></div><h4>Advanced Technology</h4><p>Cutting-edge instruments for accurate analysis.</p></div>
+        <div class="choose-card" data-aos="zoom-in" data-aos-delay="120"><div class="choose-icon-wrap"><i class="fas fa-bolt"></i></div><h4>Fast & Reliable Results</h4><p>Quick turnaround time with precise data.</p></div>
+        <div class="choose-card" data-aos="zoom-in" data-aos-delay="180"><div class="choose-icon-wrap"><i class="fas fa-microscope"></i></div><h4>Experienced Professionals</h4><p>A team of skilled chemists and analysts.</p></div>
+        <div class="choose-card" data-aos="zoom-in" data-aos-delay="240"><div class="choose-icon-wrap"><i class="fas fa-sliders"></i></div><h4>Customized Solutions</h4><p>Tailored testing packages to meet specific client needs.</p></div>
+        <div class="choose-card" data-aos="zoom-in" data-aos-delay="300"><div class="choose-icon-wrap"><i class="fas fa-history"></i></div><h4>Years of Expertise</h4><p>Successfully handling SPCB licensing for industries.</p></div>
+        <div class="choose-card" data-aos="zoom-in" data-aos-delay="360"><div class="choose-icon-wrap"><i class="fas fa-circle-check"></i></div><h4>Hassle-Free Process</h4><p>End-to-end documentation and compliance assistance.</p></div>
+        <div class="choose-card" data-aos="zoom-in" data-aos-delay="420"><div class="choose-icon-wrap"><i class="fas fa-scale-balanced"></i></div><h4>Regulatory Compliance</h4><p>Ensuring smooth approvals with minimal delays.</p></div>
+        <div class="choose-card" data-aos="zoom-in" data-aos-delay="480"><div class="choose-icon-wrap"><i class="fas fa-tag"></i></div><h4>Economical Rates</h4><p>Service provided with compatible rates.</p></div>
+      </div>
+    </section>
+
+    <!-- DIRECTORS -->
+    <section id="directors" class="directors-section">
+      <div class="section-title1" data-aos="fade-up">
+        <div class="section-label"><i class="fas fa-users-gear"></i> Leadership</div>
+        <h2>Meet Our Directors</h2>
+        <p>The visionary leadership guiding Akanksha Analytical towards excellence since 2006.</p>
+      </div>
+      <div class="directors-grid">
+        <div class="director-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="director-img-wrap">
+            <img src="./img/Mahendra Katariya.jpeg" alt="Mr. Mahendra Katariya – Partner" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0f172a/10b981?text=Mr.+Mahendra+Katariya';"/>
+            <div class="director-img-overlay"></div>
+          </div>
+          <div class="director-info">
+            <div class="director-role-badge"><i class="fas fa-briefcase"></i> Partner</div>
+            <div class="director-name">Mr. Mahendra Katariya</div>
+            <div class="director-title">Partner & Strategic Director — 30+ Years of Leadership</div>
+            <div class="director-bio">Mr. Mahendra Katariya brings over three decades of leadership experience in environmental compliance and laboratory operations. He is instrumental in steering the organization with a clear focus on regulatory excellence, operational integrity, and client trust.</div>
+            <div class="director-bio-full" id="bioMahendra">
+              <p style="margin-bottom:12px;font-size:0.9rem;color:#475569;line-height:1.8">With a strong foundation in commerce (B.Com.) and deep domain expertise, Mr. Katariya is widely recognized for his proficiency in State Pollution Control Board (SPCB) compliance. He has consistently guided industries in meeting stringent environmental regulations, ensuring seamless alignment with statutory requirements and sustainable practices.</p>
+              <p style="margin-bottom:12px;font-size:0.9rem;color:#475569;line-height:1.8">Under his leadership, the laboratory has achieved and maintained key recognitions from MoEF, NABL, and adherence to ISO standards. He has successfully led and supported critical environmental infrastructure projects, including ETP, STP, and RO systems.</p>
+              <p style="font-size:0.9rem;color:#475569;line-height:1.8">Driven by a commitment to environmental protection, quality, and sustainability, he continues to strengthen the laboratory's reputation as a trusted partner for industries and regulators alike. Established as a recognized MoEF laboratory since 2006, the organization reflects his enduring vision of delivering reliable, compliant, and future-ready environmental solutions.</p>
+            </div>
+            <button class="read-more-btn" onclick="toggleBio('bioMahendra',this)">Read More <i class="fas fa-arrow-right"></i></button>
+            <div class="director-quals">
+              <span class="director-qual">B.Com.</span>
+              <span class="director-qual">SPCB Compliance Expert</span>
+              <span class="director-qual">ETP / STP / RO Systems</span>
+              <span class="director-qual">Regulatory Advisory</span>
+            </div>
+          </div>
+        </div>
+        <div class="director-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="director-img-wrap">
+            <img src="./img/Vaishali Katariya.jpeg" alt="Ms. Vaishali Katariya – Partner" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0f172a/10b981?text=Ms.+Vaishali+Katariya';"/>
+            <div class="director-img-overlay"></div>
+          </div>
+          <div class="director-info">
+            <div class="director-role-badge"><i class="fas fa-briefcase"></i> Partner</div>
+            <div class="director-name">Ms. Vaishali Katariya</div>
+            <div class="director-title">Partner & Operations Director — 20+ Years of Experience</div>
+            <div class="director-bio">Ms. Vaishali Katariya is a key pillar of the organization, bringing over 20 years of experience in administration, accounts, and operational management. She plays a vital role in ensuring the seamless functioning of the laboratory through strong administrative control, financial discipline, and process efficiency.</div>
+            <div class="director-bio-full" id="bioVaishali">
+              <p style="margin-bottom:12px;font-size:0.9rem;color:#475569;line-height:1.8">Holding a Bachelor of Science in Computer Science (B.Sc. Computer), Ms. Katariya combines technical understanding with managerial expertise to oversee core business operations. Her specialization in administration enables the organization to maintain structured workflows, robust documentation, and effective coordination across all departments.</p>
+              <p style="margin-bottom:12px;font-size:0.9rem;color:#475569;line-height:1.8">She is actively involved in leadership, regulatory compliance support, quality control systems, and the management of administrative and financial functions. Her systematic approach ensures that the organization consistently aligns with standards set by MoEF, NABL, and ISO.</p>
+              <p style="font-size:0.9rem;color:#475569;line-height:1.8">With a strong commitment to quality and sustainability, Ms. Katariya contributes significantly to maintaining the laboratory's credibility and operational excellence. As part of a laboratory recognized by MoEF since 2006, she continues to strengthen internal systems and support the organization's mission of delivering reliable and compliant environmental services.</p>
+            </div>
+            <button class="read-more-btn" onclick="toggleBio('bioVaishali',this)">Read More <i class="fas fa-arrow-right"></i></button>
+            <div class="director-quals">
+              <span class="director-qual">B.Sc. Computer Science</span>
+              <span class="director-qual">Administration & Finance</span>
+              <span class="director-qual">Quality Control Systems</span>
+              <span class="director-qual">Regulatory Compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-wrapper" id="services">
+      <div class="service-particle" style="width:6px;height:6px;background:rgba(16,185,129,0.4);top:15%;left:8%;--dur:7s;--delay:0s;--tx:15px;--ty:-20px"></div>
+      <div class="service-particle" style="width:4px;height:4px;background:rgba(59,130,246,0.4);top:25%;right:10%;--dur:9s;--delay:-3s;--tx:-10px;--ty:-18px"></div>
+      <div class="service-particle" style="width:8px;height:8px;background:rgba(16,185,129,0.2);bottom:20%;left:15%;--dur:8s;--delay:-1s;--tx:12px;--ty:15px"></div>
+      <div class="service-particle" style="width:5px;height:5px;background:rgba(59,130,246,0.3);bottom:30%;right:8%;--dur:6s;--delay:-4s;--tx:-8px;--ty:-12px"></div>
+      <div class="services-header" data-aos="fade-up">
+        <div class="section-label" style="background:rgba(16,185,129,0.12);border-color:rgba(16,185,129,0.25);color:var(--accent)"><i class="fas fa-flask"></i> What We Do</div>
+        <h2>Our Specialized Services</h2>
+        <p>Comprehensive environmental analysis and regulatory support.</p>
+      </div>
+      <div class="services-container">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="service-count-tag">11 Services</span>
+          <div class="service-card-header"><div class="service-icon-box"><i class="fas fa-leaf"></i></div><h3>Environmental Analysis</h3></div>
+          <ul class="service-list">
+            <li>Ambient Air Monitoring</li><li>Workplace Air Monitoring</li><li>Stack Emission Monitoring</li><li>Noise Monitoring</li><li>Illumination Monitoring</li><li>Ventilation Survey</li><li>Industrial / Sewage Effluent</li><li>Drinking Water Test</li><li>Microbiological Testing for Water</li><li>Sludge, Soil Testing</li><li>Metal Analysis</li>
+          </ul>
+        </div>
+        <div class="service-card compliance" data-aos="fade-up" data-aos-delay="250">
+          <span class="service-count-tag">5 Services</span>
+          <div class="service-card-header"><div class="service-icon-box"><i class="fas fa-file-shield"></i></div><h3>SPCB Licensing & Compliance</h3></div>
+          <ul class="service-list">
+            <li>Expert guidance for obtaining SPCB consents (<strong style="color:rgba(255,255,255,0.85)">CTE & CTO</strong>)</li>
+            <li>Environmental impact assessment & documentation</li>
+            <li>Assistance in compliance with pollution control norms</li>
+            <li>Periodic environmental statutory audits & reporting</li>
+            <li>Liaison with regulatory authorities for approvals</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" style="padding:110px 10%;background:linear-gradient(135deg,#f0fdf4 0%,#eff6ff 100%);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-200px;left:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,0.06),transparent 70%);pointer-events:none"></div>
+      <div style="position:absolute;bottom:-150px;right:-150px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,0.06),transparent 70%);pointer-events:none"></div>
+      <div class="section-title1" data-aos="fade-up">
+        <div class="section-label"><i class="fas fa-diagram-project"></i> Our Work</div>
+        <h2>Our Key Projects</h2>
+        <p>Comprehensive environmental engineering solutions from concept to maintenance.</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-banner"><div class="project-icon"><i class="fas fa-tools"></i></div><div class="project-dots"><div class="project-dot active"></div><div class="project-dot"></div><div class="project-dot"></div></div></div>
+          <div class="project-content">
+            <div class="project-tag"><i class="fas fa-circle" style="font-size:6px"></i> Infrastructure</div>
+            <h4>Water Pollution Control Systems Erection</h4>
+            <p>End-to-end physical installation and setup of advanced filtration and treatment hardware designed for high-capacity industrial use.</p>
+            <div class="project-stats">
+              <div class="project-stat"><span class="project-stat-num">100<span style="color:var(--accent);font-size:0.9rem">%</span></span><span class="project-stat-label">Compliance</span></div>
+              <div class="project-stat"><span class="project-stat-num" style="color:var(--accent)">ETP</span><span class="project-stat-label">Systems</span></div>
+              <div class="project-stat"><span class="project-stat-num">24/7</span><span class="project-stat-label">Support</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="260">
+          <div class="project-banner"><div class="project-icon"><i class="fas fa-microchip"></i></div><div class="project-dots"><div class="project-dot"></div><div class="project-dot active"></div><div class="project-dot"></div></div></div>
+          <div class="project-content">
+            <div class="project-tag" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.2);color:var(--secondary)"><i class="fas fa-circle" style="font-size:6px"></i> O&M</div>
+            <h4>Commissioning and Management</h4>
+            <p>Expert system startup, performance testing, and O&M (Operation and Maintenance) to ensure long-term regulatory compliance and efficiency.</p>
+            <div class="project-stats">
+              <div class="project-stat"><span class="project-stat-num" style="color:var(--secondary)">O&M</span><span class="project-stat-label">Managed</span></div>
+              <div class="project-stat"><span class="project-stat-num">Long<span style="color:var(--secondary);font-size:0.75rem">-term</span></span><span class="project-stat-label">Partnership</span></div>
+              <div class="project-stat"><span class="project-stat-num">ISO</span><span class="project-stat-label">Compliant</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" style="background:linear-gradient(160deg,#0f172a 0%,#1e293b 60%,#0f2d1f 100%);padding:110px 10%;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(16,185,129,0.06) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(59,130,246,0.05) 0%,transparent 50%);pointer-events:none"></div>
+      <div class="section-title1" data-aos="fade-up">
+        <div class="section-label" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.2)"><i class="fas fa-certificate"></i> Official Recognition</div>
+        <h2 class="text-gradient">Our Accreditations & Certifications</h2>
+        <p style="color:rgba(255,255,255,0.45)">Click on the certificates to view them in full.</p>
+      </div>
+      <div class="cert-images-grid">
+        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="100" onclick="openLightboxImg('./img/ISO 9001 (1).jpg')">
+          <div class="cert-img-frame" style="background:#fff;padding:12px;display:flex;align-items:center;justify-content:center;min-height:360px">
+            <img src="./img/ISO 9001 (1).jpg" alt="ISO 9001:2015 Certificate" style="width:100%;height:auto;max-height:380px;object-fit:contain;border-radius:8px;cursor:zoom-in"/>
+          </div>
+          <div class="cert-img-label"><h4>ISO 9001:2015</h4><p>Quality Management System — Valid till June 2026</p></div>
+        </div>
+        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="200" onclick="openLightboxImg('./img/ISO 45001 (1).jpg')">
+          <div class="cert-img-frame" style="background:#fff;padding:12px;display:flex;align-items:center;justify-content:center;min-height:360px">
+            <img src="./img/ISO 45001 (1).jpg" alt="ISO 45001:2018 Certificate" style="width:100%;height:auto;max-height:380px;object-fit:contain;border-radius:8px;cursor:zoom-in"/>
+          </div>
+          <div class="cert-img-label"><h4>ISO 45001:2018</h4><p>Occupational Health & Safety Management System — Valid till Oct 2026</p></div>
+        </div>
+        <div class="cert-icon-card" data-aos="zoom-in" data-aos-delay="300">
+          <i class="fas fa-microscope"></i>
+          <p>NABL ISO 17025:2017<br/><span style="font-size:0.8rem;opacity:0.6;font-weight:400">National Accreditation Board for Testing & Calibration Laboratories</span></p>
+        </div>
+        <div class="cert-icon-card" data-aos="zoom-in" data-aos-delay="400">
+          <i class="fas fa-landmark"></i>
+          <p>CPCB Recognized<br/><span style="font-size:0.8rem;opacity:0.6;font-weight:400">Ministry of Environment, Forest and Climate Change of India — Recognized since 2006</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFRASTRUCTURE -->
+    <section id="infrastructure">
+      <div class="section-title1" data-aos="fade-up">
+        <div class="section-label"><i class="fas fa-building"></i> Facilities</div>
+        <h2>Laboratory Infrastructure</h2>
+        <p>Our facility is equipped with the latest technology to ensure precision in every test.</p>
+      </div>
+      <div class="infra-grid">
+        <div class="infra-images" data-aos="fade-right">
+          <div class="img-wrap"><img src="./img/instrumnets room.jpeg" alt="Instrument Room — Advanced Scientific Equipment"/></div>
+        </div>
+        <div class="infra-details" data-aos="fade-left">
+          <h3>Equipment & Facilities</h3>
+          <div class="infra-item"><i class="fas fa-microscope"></i> Advanced instruments for chemical and physical analysis</div>
+          <div class="infra-item"><i class="fas fa-broadcast-tower"></i> Field sampling devices for water and air quality</div>
+          <div class="infra-item"><i class="fas fa-smog"></i> Stack emission monitoring equipment</div>
+          <div class="infra-item"><i class="fas fa-vial"></i> Dedicated laboratory for water, wastewater, and air analysis</div>
+          <div class="infra-item"><i class="fas fa-atom"></i> Atomic Absorption Spectrophotometer (AAS)</div>
+          <div class="infra-item"><i class="fas fa-flask"></i> Wet Lab, Hot Room, Balance Room & Document Room</div>
+        </div>
+      </div>
+
+      <!-- Lab Photo Gallery -->
+      <div class="lab-gallery" data-aos="fade-up" data-aos-delay="100">
+        <div class="section-title1" style="margin-top:0;margin-bottom:36px">
+          <div class="section-label"><i class="fas fa-images"></i> Inside Our Lab</div>
+          <h2 style="font-size:2rem">Lab Photo Gallery</h2>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item wide tall" data-aos="zoom-in"><img src="./img/instrumnets room.jpeg" alt="Instrument Room"/><div class="gallery-item-overlay"><span class="gallery-item-label">Instrument Room</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50"><img src="./img/img1.jpeg" alt="Analyst conducting titration"/><div class="gallery-item-overlay"><span class="gallery-item-label">Titration Analysis</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="80"><img src="./img/img3.jpeg" alt="Atomic Absorption Spectrophotometer"/><div class="gallery-item-overlay"><span class="gallery-item-label">AAS Instrument</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="110"><img src="./img/img4.jpeg" alt="Chemical reagents storage"/><div class="gallery-item-overlay"><span class="gallery-item-label">Reagents Storage</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="140"><img src="./img/img5.jpeg" alt="Spectrophotometer analysis"/><div class="gallery-item-overlay"><span class="gallery-item-label">Spectrophotometer</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="170"><img src="./img/balance room.jpeg" alt="Balance Room"/><div class="gallery-item-overlay"><span class="gallery-item-label">Balance Room</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200"><img src="./img/img6.jpeg" alt="Laboratory Overview"/><div class="gallery-item-overlay"><span class="gallery-item-label">Lab Overview</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="230"><img src="./img/weblab.jpeg" alt="Wet Lab 1"/><div class="gallery-item-overlay"><span class="gallery-item-label">Wet Lab 1</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="260"><img src="./img/documents room.jpeg" alt="Document Room"/><div class="gallery-item-overlay"><span class="gallery-item-label">Document Room</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="290"><img src="./img/hot room.jpeg" alt="Hot Room"/><div class="gallery-item-overlay"><span class="gallery-item-label">Hot Room</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="320"><img src="./img/img4.jpeg" alt="Female analyst heating sample"/><div class="gallery-item-overlay"><span class="gallery-item-label">Sample Heating</span></div></div>
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="350"><img src="./img/img6.jpeg" alt="Female analyst titration"/><div class="gallery-item-overlay"><span class="gallery-item-label">Precision Titration</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR FACILITY -->
+    <section id="our-facility" class="facility-section">
+      <div class="section-title1" data-aos="fade-up">
+        <div class="section-label"><i class="fas fa-map-location-dot"></i> Our Location</div>
+        <h2>Our Facility</h2>
+        <p>Located at GangaDham, Bibwewadi, Pune — an MoEF&CC recognized Environmental Analytical Laboratory since 2006.</p>
+      </div>
+
+      <div class="facility-img-wrap" data-aos="fade-up" data-aos-delay="100">
+        <div class="facility-deco-br"></div>
+        <div class="facility-deco-tl"></div>
+
+        <div class="facility-img-frame">
+          <img
+            src="/img/building.jpeg"
+            alt="Akanksha Analytical & Research Lab — Building Exterior, Bibwewadi Pune"
+          />
+
+          <div class="facility-overlay">
+            <div class="facility-badges">
+              <span class="facility-badge green">
+                <i class="fas fa-certificate"></i>
+                Environmental Analytical Laboratory
+              </span>
+              <span class="facility-badge white">
+                <i class="fas fa-landmark"></i>
+                Recognized by MoEFCC, Govt. New Delhi
+              </span>
+            </div>
+            <p class="facility-address">
+              <i class="fas fa-location-dot" style="margin-right:6px;color:#6ee7b7"></i>
+              S. No. 613, Plot No. 5, GangaDham Phase I, Bibwewadi, Pune – 411037
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" style="background:var(--primary);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-100px;left:-100px;width:350px;height:350px;border-radius:50%;background:rgba(16,185,129,0.04);pointer-events:none"></div>
+      <div style="position:absolute;bottom:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(59,130,246,0.04);pointer-events:none"></div>
+      <div class="section-title1" data-aos="fade-up">
+        <div class="section-label" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.2)"><i class="fas fa-comments" style="color:var(--accent)"></i>&nbsp;Client Voices</div>
+        <h2 style="color:#fff">Client Testimonials</h2>
+        <p style="color:rgba(255,255,255,0.45)">What our partners say about our commitment to excellence.</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card" data-aos="fade-up"><i class="fas fa-quote-left"></i><p>"The team was professional, reports were accurate, and results helped us meet all regulatory deadlines."</p><div class="testimonial-author">— Industrial Client, Pune</div></div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150"><i class="fas fa-quote-left"></i><p>"Reliable and efficient lab with expert staff. We trust AKANKSHA for all our environmental testing."</p><div class="testimonial-author">— Consultancy Firm</div></div>
+      </div>
+    </section>
+
+    <!-- CAREERS -->
+    <section id="careers" style="background:#fff">
+      <div class="section-title1" data-aos="fade-up">
+        <div class="section-label"><i class="fas fa-users"></i> Join Us</div>
+        <h2>Join Our Team</h2>
+        <p>Build your career with a leading NABL-accredited environmental research laboratory.</p>
+      </div>
+      <div class="career-grid">
+        <div class="job-card" data-aos="fade-up"><span class="job-tag">Full-Time</span><h4>Senior Analyst</h4><ul class="job-details"><li><i class="fas fa-briefcase"></i> 3-5 Years Experience</li><li><i class="fas fa-graduation-cap"></i> M.Sc. in Chemistry / Env Science</li></ul><p>Expertise in instrumental analysis (ICP, GC, AAS) and NABL documentation.</p><a href="mailto:akankshalab2007@gmail.com?subject=Application for Senior Analyst" class="apply-btn">Apply Now <i class="fas fa-arrow-right"></i></a></div>
+        <div class="job-card" data-aos="fade-up" data-aos-delay="100"><span class="job-tag">Full-Time</span><h4>Field Technician</h4><ul class="job-details"><li><i class="fas fa-briefcase"></i> 1-2 Years Experience</li><li><i class="fas fa-location-dot"></i> Site Sampling Work</li></ul><p>Responsible for ambient air, stack, and water sampling across client locations.</p><a href="mailto:akankshalab2007@gmail.com?subject=Application for Field Technician" class="apply-btn">Apply Now <i class="fas fa-arrow-right"></i></a></div>
+        <div class="job-card" data-aos="fade-up" data-aos-delay="200"><span class="job-tag">Internship</span><h4>Lab Assistant</h4><ul class="job-details"><li><i class="fas fa-briefcase"></i> Freshers Welcome</li><li><i class="fas fa-clock"></i> 6 Months Duration</li></ul><p>Assist senior analysts in day-to-day testing of water and wastewater samples.</p><a href="mailto:akankshalab2007@gmail.com?subject=Application for Lab Assistant" class="apply-btn">Apply Now <i class="fas fa-arrow-right"></i></a></div>
+      </div>
+      <div style="text-align:center;margin-top:50px" data-aos="fade-up"><p style="color:#64748b">Don't see a matching role? Send your CV to <strong style="color:var(--primary)">akankshalab2007@gmail.com</strong></p></div>
+    </section>
+
+    <!-- CLIENTS SERVED -->
+    <section id="clients-served" class="clients-served-section">
+      <div class="clients-orb clients-orb-1"></div><div class="clients-orb clients-orb-2"></div>
+      <div class="clients-particle" style="width:5px;height:5px;top:18%;left:6%;--dur:8s;--delay:0s;--tx:14px;--ty:-18px"></div>
+      <div class="clients-particle" style="width:3px;height:3px;top:30%;right:9%;--dur:10s;--delay:-3s;--tx:-10px;--ty:-14px"></div>
+      <div class="clients-particle" style="width:6px;height:6px;bottom:22%;left:12%;--dur:7s;--delay:-1.5s;--tx:10px;--ty:12px"></div>
+      <div class="clients-particle" style="width:4px;height:4px;bottom:28%;right:7%;--dur:9s;--delay:-4s;--tx:-8px;--ty:-10px"></div>
+      <div class="section-title1" data-aos="fade-up">
+        <div class="section-label clients-label"><i class="fas fa-handshake"></i> Our Clients</div>
+        <h2 class="clients-heading">We Serve For</h2>
+        <p class="clients-subtext">Trusted partners across industries for all environmental testing needs.</p>
+      </div>
+      <div class="serve-grid-dark">
+        <div class="serve-card-dark" data-aos="fade-up" data-aos-delay="80"><i class="fas fa-quote-left serve-quote-icon"></i><div class="serve-icon-dark"><i class="fas fa-industry"></i></div><p>Manufacturing & Industrial Units</p><div class="serve-glow-orb"></div></div>
+        <div class="serve-card-dark" data-aos="fade-up" data-aos-delay="160"><i class="fas fa-quote-left serve-quote-icon"></i><div class="serve-icon-dark"><i class="fas fa-faucet-drip"></i></div><p>Water Treatment Plants</p><div class="serve-glow-orb"></div></div>
+        <div class="serve-card-dark" data-aos="fade-up" data-aos-delay="240"><i class="fas fa-quote-left serve-quote-icon"></i><div class="serve-icon-dark"><i class="fas fa-leaf"></i></div><p>Environmental Agencies</p><div class="serve-glow-orb"></div></div>
+        <div class="serve-card-dark" data-aos="fade-up" data-aos-delay="320"><i class="fas fa-quote-left serve-quote-icon"></i><div class="serve-icon-dark"><i class="fas fa-balance-scale"></i></div><p>Government & Regulatory Bodies</p><div class="serve-glow-orb"></div></div>
+        <div class="serve-card-dark" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-quote-left serve-quote-icon"></i><div class="serve-icon-dark"><i class="fas fa-city"></i></div><p>Construction & Infrastructure</p><div class="serve-glow-orb"></div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title1" data-aos="fade-up">
+        <div class="section-label"><i class="fas fa-envelope"></i> Reach Out</div>
+        <h2>Get in Touch</h2>
+        <p>Our expert team is ready to assist with your environmental testing requirements.</p>
+      </div>
+      <div class="contact-container" data-aos="fade-up">
+        <div class="contact-info">
+          <h3>Let's Talk</h3>
+          <p>Fill in the form or reach us directly through the details below.</p>
+          <div class="info-item"><div class="info-icon"><i class="fas fa-location-dot"></i></div><div><strong>Address</strong><span>S. No. 613, Plot No. 5, GangaDham, Phase I, Opp. Ganga Landmark Row Houses, Bibwewadi, Pune – 411037.</span></div></div>
+          <div class="info-item"><div class="info-icon"><i class="fas fa-phone"></i></div><div><strong>Phone</strong><span>020-24240030</span></div></div>
+          <div class="info-item"><div class="info-icon"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><span>akankshalab2007@gmail.com</span></div></div>
+          <div class="info-item"><div class="info-icon"><i class="fas fa-clock"></i></div><div><strong>Hours</strong><span>Mon – Sat: 9:00 AM – 5:30 PM</span></div></div>
+        </div>
+        <div class="contact-form">
+          <div id="contactFormWrap">
+            <form id="contactForm" class="form-group" novalidate action="connect.php" method="post">
+              <input type="text" name="website" id="hp_website" style="display:none;opacity:0;position:absolute" tabindex="-1" autocomplete="off"/>
+              <input type="text" name="full_name" id="inp_name" placeholder="Full Name *" required autocomplete="name"/>
+              <input type="email" name="email" id="inp_email" placeholder="Email Address *" required autocomplete="email"/>
+              <select name="service" id="inp_service">
+                <option value="">— Service Interested In (optional) —</option>
+                <optgroup label="Environmental Analysis">
+                  <option>Ambient Air Monitoring</option><option>Workplace Air Monitoring</option><option>Stack Emission Monitoring</option><option>Noise Monitoring</option><option>Illumination Monitoring</option><option>Ventilation Survey</option><option>Industrial / Sewage Effluent</option><option>Drinking Water Test</option><option>Microbiological Testing for Water</option><option>Sludge &amp; Soil Testing</option><option>Metal Analysis</option>
+                </optgroup>
+                <optgroup label="SPCB Licensing &amp; Compliance">
+                  <option>SPCB Consent (CTE / CTO)</option><option>Environmental Impact Assessment</option><option>Pollution Control Compliance</option><option>Environmental Statutory Audit</option><option>Regulatory Authority Liaison</option>
+                </optgroup>
+                <option value="Other">Other / General Inquiry</option>
+              </select>
+              <textarea name="message" id="inp_message" rows="5" placeholder="How can we help you? *" required></textarea>
+              <button type="submit" class="btn-3d btn-accent" id="submitBtn" style="width:100%;justify-content:center">
+                <span class="spinner"></span>
+                <i class="fas fa-paper-plane btn-label"></i>
+                <span class="btn-label"> Send Inquiry</span>
+              </button>
+            </form>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon"><i class="fas fa-check"></i></div>
+            <h4>Inquiry Submitted!</h4>
+            <p>Thank you for reaching out. We'll get back to you within 1–2 business days.</p>
+            <div class="ref-badge" id="refBadge">Ref #—</div>
+            <button onclick="resetForm()" class="btn-3d btn-outline" style="margin-top:10px;font-size:0.85rem;padding:10px 22px"><i class="fas fa-rotate-left"></i> Send Another</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <a href="#home" class="footer-logo">
+        <div class="logo-icon"><img src="akanksha_logo.png" alt="Akanksha Analytical Logo"/></div>
+        <b>AKANKSHA ANALYTICAL & RESEARCH LAB</b>
+      </a>
+      <p>© 2026 AKANKSHA ANALYTICAL AND RESEARCH LAB. All rights reserved.</p>
+      <p class="footer-tag">NABL Accredited | CPCB & MoEF&CC Recognized | ISO 9001:2015 | ISO 45001:2018</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({duration:900,once:true,easing:"ease-out-cubic"});
+
+      const navbar=document.getElementById("navbar");
+      window.addEventListener("scroll",()=>{
+        navbar.classList.toggle("scrolled",window.scrollY>30);
+        document.getElementById("scrollTop").classList.toggle("visible",window.scrollY>400);
+      });
+
+      const ham=document.getElementById("hamburger"),mob=document.getElementById("mobileMenu");
+      ham.addEventListener("click",()=>{ham.classList.toggle("open");mob.classList.toggle("open");});
+      function closeMobile(){ham.classList.remove("open");mob.classList.remove("open");}
+
+      const sections=document.querySelectorAll("section[id],div[id]");
+      const navLinks=document.querySelectorAll(".nav-links a");
+      window.addEventListener("scroll",()=>{
+        let cur="";
+        sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id;});
+        navLinks.forEach(a=>{a.classList.remove("active");if(a.getAttribute("href")==="#"+cur)a.classList.add("active");});
+      });
+
+      // Three.js background
+      const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000);
+      const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});
+      renderer.setSize(window.innerWidth,window.innerHeight);renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+      document.getElementById("canvas-container").appendChild(renderer.domElement);
+      const geoTypes=[new THREE.IcosahedronGeometry(1,0),new THREE.OctahedronGeometry(.9,0),new THREE.TetrahedronGeometry(.8,0)];
+      const mat1=new THREE.MeshPhongMaterial({color:0x10b981,wireframe:true,transparent:true,opacity:.06});
+      const mat2=new THREE.MeshPhongMaterial({color:0x3b82f6,wireframe:true,transparent:true,opacity:.05});
+      const shapes=[];
+      for(let i=0;i<20;i++){const m=new THREE.Mesh(geoTypes[i%geoTypes.length],i%3===0?mat2:mat1);m.position.set(Math.random()*20-10,Math.random()*20-10,Math.random()*10-12);m.rotation.set(Math.random()*Math.PI,Math.random()*Math.PI,0);m.userData.speed={x:(Math.random()-.5)*.002,y:(Math.random()-.5)*.002};scene.add(m);shapes.push(m);}
+      scene.add(new THREE.AmbientLight(0xffffff,.5));
+      const pl1=new THREE.PointLight(0x10b981,1.5,100);pl1.position.set(10,10,10);scene.add(pl1);
+      const pl2=new THREE.PointLight(0x3b82f6,1,100);pl2.position.set(-10,-10,5);scene.add(pl2);
+      camera.position.z=5;
+      let mx3d=0,my3d=0;
+      document.addEventListener("mousemove",e=>{mx3d=(e.clientX/window.innerWidth-.5)*2;my3d=-(e.clientY/window.innerHeight-.5)*2;});
+      (function animate(){requestAnimationFrame(animate);shapes.forEach(s=>{s.rotation.x+=s.userData.speed.x;s.rotation.y+=s.userData.speed.y;s.position.x+=(mx3d*.3-s.position.x*.01)*.01;s.position.y+=(my3d*.3-s.position.y*.01)*.01;});camera.position.x+=(mx3d*.2-camera.position.x)*.02;camera.position.y+=(my3d*.2-camera.position.y)*.02;renderer.render(scene,camera);})();
+      window.addEventListener("resize",()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
+
+      // Card tilt
+      document.querySelectorAll(".stat-card-3d").forEach(card=>{
+        card.addEventListener("mousemove",e=>{const r=card.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;card.style.transform=`perspective(600px) rotateX(${-(y/r.height)*14}deg) rotateY(${(x/r.width)*14}deg) translateY(-10px)`;});
+        card.addEventListener("mouseleave",()=>{card.style.transform="";});
+      });
+      document.querySelectorAll(".project-card").forEach(card=>{
+        card.addEventListener("mousemove",e=>{const r=card.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;card.style.transform=`perspective(800px) rotateX(${-(y/r.height)*6}deg) rotateY(${(x/r.width)*6}deg) translateY(-18px) scale(1.02)`;});
+        card.addEventListener("mouseleave",()=>{card.style.transform="";});
+      });
+      document.querySelectorAll(".service-card").forEach(card=>{
+        card.addEventListener("mousemove",e=>{const r=card.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;card.style.transform=`perspective(1000px) rotateX(${-(y/r.height)*4}deg) rotateY(${(x/r.width)*4}deg) translateY(-10px)`;});
+        card.addEventListener("mouseleave",()=>{card.style.transform="";});
+      });
+
+      // Service list animation
+      const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const items=entry.target.querySelectorAll(".service-list li");items.forEach((li,i)=>{li.style.opacity="0";li.style.transform="translateX(-20px)";li.style.transition=`opacity .5s ease ${i*.07}s,transform .5s ease ${i*.07}s,color .3s ease,padding-left .3s ease`;setTimeout(()=>{li.style.opacity="1";li.style.transform="translateX(0)";},100+i*70);});observer.unobserve(entry.target);}});},{threshold:.2});
+      document.querySelectorAll(".service-card").forEach(card=>observer.observe(card));
+
+      // Project entry animation
+      const projObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.animation="projEntry .7s cubic-bezier(.23,1,.32,1) forwards";projObserver.unobserve(entry.target);}});},{threshold:.15});
+      const ps=document.createElement("style");ps.textContent="@keyframes projEntry{from{opacity:0;transform:translateY(40px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}";document.head.appendChild(ps);
+      document.querySelectorAll(".project-card").forEach(card=>{card.style.opacity="0";projObserver.observe(card);});
+      document.querySelectorAll(".project-card").forEach(card=>{
+        card.addEventListener("mouseenter",()=>{const dots=card.querySelectorAll(".project-dot");let idx=0;const interval=setInterval(()=>{dots.forEach(d=>d.classList.remove("active"));dots[idx%dots.length].classList.add("active");idx++;},600);card._dotInterval=interval;});
+        card.addEventListener("mouseleave",()=>{clearInterval(card._dotInterval);const dots=card.querySelectorAll(".project-dot");dots.forEach(d=>d.classList.remove("active"));dots[0].classList.add("active");});
+      });
+
+      function toggleBio(id,btn){const el=document.getElementById(id);const isExpanded=el.classList.toggle("expanded");btn.innerHTML=isExpanded?'Show Less <i class="fas fa-arrow-up"></i>':'Read More <i class="fas fa-arrow-right"></i>';}
+
+      function openLightboxImg(src){const lb=document.getElementById("certLightbox");document.getElementById("lightboxImg").src=src;lb.classList.add("open");}
+      function closeLightbox(){document.getElementById("certLightbox").classList.remove("open");}
+
+      // Contact form
+      const contactForm=document.getElementById("contactForm");
+      const submitBtn=document.getElementById("submitBtn");
+      const formWrap=document.getElementById("contactFormWrap");
+      const formSuccess=document.getElementById("formSuccess");
+      const refBadge=document.getElementById("refBadge");
+      const toast=document.getElementById("toast");
+
+      function showToast(type,title,sub){const icon=document.getElementById("toastIcon");toast.className="toast "+type;document.getElementById("toastTitle").textContent=title;document.getElementById("toastSub").textContent=sub;icon.className=type==="success"?"fas fa-check":"fas fa-triangle-exclamation";toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),5000);}
+      function setLoading(on){submitBtn.classList.toggle("loading",on);submitBtn.disabled=on;}
+      function resetForm(){contactForm.reset();formWrap.style.display="";formSuccess.classList.remove("show");}
+
+      contactForm.addEventListener("submit",async function(e){
+        e.preventDefault();
+        const name=document.getElementById("inp_name").value.trim();
+        const email=document.getElementById("inp_email").value.trim();
+        const message=document.getElementById("inp_message").value.trim();
+        if(!name||name.length<2){showToast("error","Name Required","Please enter your full name (min. 2 characters).");document.getElementById("inp_name").focus();return;}
+        const emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!email||!emailRe.test(email)){showToast("error","Valid Email Required","Please enter a valid email address.");document.getElementById("inp_email").focus();return;}
+        if(!message||message.length<10){showToast("error","Message Too Short","Please describe your inquiry (min. 10 characters).");document.getElementById("inp_message").focus();return;}
+        setLoading(true);
+        try{
+          const formData=new FormData(contactForm);
+          const response=await fetch("submit_contact.php",{method:"POST",body:formData});
+          const data=await response.json();
+          if(data.success){formWrap.style.display="none";refBadge.textContent=data.inquiry_id?"Reference #"+data.inquiry_id:"Submitted!";formSuccess.classList.add("show");showToast("success","Inquiry Sent!",data.message||"We'll be in touch shortly.");}
+          else{showToast("error","Submission Failed",data.message||"Please try again or email us directly.");}
+        }catch(err){console.error("Contact form error:",err);showToast("error","Network Error","Could not connect. Please email akankshalab2007@gmail.com directly.");}
+        finally{setLoading(false);}
+      });
+    </script>
+  </body>
+</html>
